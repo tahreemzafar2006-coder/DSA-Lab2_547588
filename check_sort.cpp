@@ -2,7 +2,15 @@
 #include <cassert>
 using namespace std;
 
-bool isSorted(const int* arr, const int size);
+bool isSorted(const int* arr, const int size){
+      for (int i = 0; i < size - 1; i++) {
+        if (arr[0] > arr[1]) {
+            return false;
+        }
+    }
+
+    return true;
+}
 
 void testSortedArray() {
     int arr[] = {1, 2, 3, 4, 5};
@@ -63,7 +71,11 @@ void  testunSortedNegativeValues(){
     bool result = isSorted(arr,5);
     assert(result == false);
 }
-
+void  testSamevalues(){
+    int arr[]={5,5,5,5,5};
+    bool result = isSorted(arr,5);
+    assert(result == true);
+}
 int main() {
 
     testSortedArray();
@@ -74,6 +86,7 @@ int main() {
     testNegativeValues();
     testNullValues();
     testunSortedNegativeValues();
+    testSamevalues();
 
     cout << "All tests passed!" << endl;
 
